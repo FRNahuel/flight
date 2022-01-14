@@ -1,0 +1,36 @@
+<mvc:View
+    controllerName="flight.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page id="page" title="{i18n>title}" titleAlignment="Center" >
+    	<headerContent>
+
+		</headerContent>
+        <content>
+            <List id="flightList" items="{/AerolineaSet}" busyIndicatorDelay="0">
+				<headerToolbar>
+					<OverflowToolbar>
+						<SearchField
+                            placeholder="{i18n>searchPlaceholder}"
+						    showRefreshButton="true"
+							tooltip="{i18n>searchTooltip}"
+							search=".onSearch"
+							value="{filterModel>/Carrname}"
+							width="auto">
+						</SearchField>
+						<ToolbarSpacer/>
+			            <Button press=".onCreate" icon="sap-icon://add" tooltip="{i18n>buttonTooltip}" />  
+					</OverflowToolbar>
+				</headerToolbar>          
+                <ObjectListItem
+                    title="{Carrname}"
+                    number=" "
+                    numberUnit="{Currcode}">
+		            <ObjectAttribute text="{Carrid}" />
+                </ObjectListItem>
+            </List>
+        </content>
+    </Page>
+</mvc:View>

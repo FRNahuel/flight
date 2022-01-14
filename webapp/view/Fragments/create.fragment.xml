@@ -1,0 +1,63 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+    <Dialog title="{i18n>create.title}" contentWidth="20%">
+        <f:Form
+			editable="true">
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="3"
+					labelSpanL="3"
+					labelSpanM="3"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="4"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="{i18n>create.name}">
+							<f:fields>
+								<Input value="{create>/Carrname}" maxLength="20"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>create.id}">
+							<f:fields>
+								<Input value="{create>/Carrid}" maxLength="3"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>create.curr}">
+							<f:fields>
+								<ComboBox items="{/CurrencySet}" selectedKey="{create>/Currcode}">
+                                    <core:Item key="{Waers}" text="{Ltext}" />
+                                </ComboBox>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+        <beginButton>
+            <Button text="{i18n>create.confirm}" enabled="{
+				parts: [ 	{ path:'create>/Carrname' },
+						 	{ path:'create>/Carrid'   },
+						 	{ path:'create>/Currcode'     } 
+						],
+				formatter: '.formatter.getEnabledButtonCreate' 
+				}" 
+				type="Accept" press=".onConfirm"/>
+        </beginButton>
+        <endButton>
+             <Button text="{i18n>create.cancel}" type="Reject" press="onCancel"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>
