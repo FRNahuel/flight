@@ -2,7 +2,7 @@ sap.ui.define([
     "sap/ui/base/Object",
 ], function (Object) {
     "use strict";
-    return Object.extend("ar.com.relesa.shipment.planning.utils.odataAPI", {
+    return Object.extend("flights.planning.utils.odataAPI", {
         constructor: function (model) {
             this.model = model;
         },
